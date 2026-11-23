@@ -11,3 +11,5 @@ fortis-out.log
 fortis-err.log
 .opencode/
 .openchamber/
+
+official_cisa.json

@@ -1,0 +1,1841 @@
+{
+  "metadata": {
+    "dataset_name": "Fortis curated KEV evaluation dataset",
+    "schema_version": "2.0",
+    "generated_at_utc": "2026-11-22T13:50:47.200436+00:00",
+    "seed": 40,
+    "catalog_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+    "catalog_version": "2026.11.20",
+    "catalog_release": "2026-11-20T17:48:39.1516Z",
+    "snapshot_entry_count": 1790,
+    "snapshot_sha256": "12c9ca4c5350ecacdf22bdce91b4ffcf06b8c8dc9c69b8bfb4c1a21be7a5fe50",
+    "positive_count": 35,
+    "negative_count": 5,
+    "total_count": 40,
+    "sampling": {
+      "target_quotas": {
+        "RCE": 6,
+        "Auth_Bypass": 6,
+        "Access_PrivEsc": 5,
+        "SQL_Injection": 3,
+        "OS_Cmd_Injection": 3,
+        "Path_Traversal": 3,
+        "SSRF": 2,
+        "Unrestricted_Upload": 2,
+        "DoS": 2,
+        "InfoLeak_Crypto": 2,
+        "Logging_Monitoring": 1
+      },
+      "actual_sampling_categories": {
+        "Logging_Monitoring": 1,
+        "SQL_Injection": 3,
+        "SSRF": 2,
+        "Unrestricted_Upload": 2,
+        "Auth_Bypass": 6,
+        "Path_Traversal": 3,
+        "InfoLeak_Crypto": 2,
+        "OS_Cmd_Injection": 3,
+        "DoS": 2,
+        "Access_PrivEsc": 5,
+        "RCE": 6
+      },
+      "quota_deficits": {},
+      "classification_note": "CWE and keyword categories are sampling heuristics and have not been manually validated."
+    },
+    "limitations": [
+      "Negative labels apply only to the complete KEV snapshot supplied for this run.",
+      "Absence from KEV does not imply no exploitation, low risk, or no need to patch.",
+      "Null means the snapshot provides no value for that field; it does not mean confirmed No.",
+      "Categories are sampling heuristics, not framework-mapping gold-standard labels.",
+      "Negative cases are purposefully selected and do not represent all non-KEV vulnerabilities.",
+      "Reference links are provided for manual review; the script does not verify CVEs online.",
+      "SHA-256 identifies the input file but does not independently authenticate its source.",
+      "This script builds a dataset. It does not run Fortis or evaluate model performance."
+    ]
+  },
+  "cases": [
+    {
+      "case_type": "positive_kev",
+      "cve_id": "CVE-2023-21492",
+      "vendor": "Samsung",
+      "product": "Mobile Devices",
+      "sampling_category": "Logging_Monitoring",
+      "classification_evidence": {
+        "Logging_Monitoring": [
+          "CWE-532",
+          "sensitive information into log"
+        ],
+        "InfoLeak_Crypto": [
+          "sensitive information"
+        ]
+      },
+      "source_record": {
+        "cveID": "CVE-2023-21492",
+        "vendorProject": "Samsung",
+        "product": "Mobile Devices",
+        "vulnerabilityName": "Samsung Mobile Devices Insertion of Sensitive Information Into Log File Vulnerability",
+        "dateAdded": "2023-05-19",
+        "shortDescription": "Samsung mobile devices running Android 11, 12, and 13 contain an insertion of sensitive information into log file vulnerability that allows a privileged, local attacker to conduct an address space layout randomization (ASLR) bypass.",
+        "requiredAction": "Apply updates per vendor instructions.",
+        "dueDate": "2023-06-09",
+        "knownRansomwareCampaignUse": "Unknown",
+        "forensicTriage": "No",
+        "notes": "https://security.samsungmobile.com/securityUpdate.smsb;  https://nvd.nist.gov/vuln/detail/CVE-2023-21492",
+        "cwes": [
+          "CWE-532"
+        ]
+      },
+      "expected": {
+        "kev_listed": true,
+        "date_added": "2023-05-19",
+        "due_date": "2023-06-09",
+        "ransomware_use": "Unknown",
+        "forensic_triage": "No",
+        "cwes": [
+          "CWE-532"
+        ]
+      },
+      "evaluation_questions": [
+        "Is CVE-2023-21492 listed in the supplied KEV snapshot?",
+        "What KEV remediation due date is given for CVE-2023-21492?",
+        "What ransomware campaign use status is reported for CVE-2023-21492?",
+        "What forensicTriage value, if any, is provided for CVE-2023-21492?",
+        "What required action is specified for CVE-2023-21492?"
+      ]
+    },
+    {
+      "case_type": "positive_kev",
+      "cve_id": "CVE-2020-5722",
+      "vendor": "Grandstream",
+      "product": "UCM6200",
+      "sampling_category": "SQL_Injection",
+      "classification_evidence": {
+        "SQL_Injection": [
+          "CWE-89",
+          "sql injection"
+        ]
+      },
+      "source_record": {
+        "cveID": "CVE-2020-5722",
+        "vendorProject": "Grandstream",
+        "product": "UCM6200",
+        "vulnerabilityName": "Grandstream Networks UCM6200 Series SQL Injection Vulnerability",
+        "dateAdded": "2022-01-28",
+        "shortDescription": "Grandstream UCM6200 series is vulnerable to an unauthenticated remote SQL injection via crafted HTTP request. Exploitation can allow for code execution as root.",
+        "requiredAction": "Apply updates per vendor instructions.",
+        "dueDate": "2022-07-28",
+        "knownRansomwareCampaignUse": "Unknown",
+        "forensicTriage": "No",
+        "notes": "https://nvd.nist.gov/vuln/detail/CVE-2020-5722",
+        "cwes": [
+          "CWE-89"
+        ]
+      },
+      "expected": {
+        "kev_listed": true,
+        "date_added": "2022-01-28",
+        "due_date": "2022-07-28",
+        "ransomware_use": "Unknown",
+        "forensic_triage": "No",
+        "cwes": [
+          "CWE-89"
+        ]
+      },
+      "evaluation_questions": [
+        "Is CVE-2020-5722 listed in the supplied KEV snapshot?",
+        "What KEV remediation due date is given for CVE-2020-5722?",
+        "What ransomware campaign use status is reported for CVE-2020-5722?",
+        "What forensicTriage value, if any, is provided for CVE-2020-5722?",
+        "What required action is specified for CVE-2020-5722?"
+      ]
+    },
+    {
+      "case_type": "positive_kev",
+      "cve_id": "CVE-2025-25181",
+      "vendor": "Advantive",
+      "product": "VeraCore",
+      "sampling_category": "SQL_Injection",
+      "classification_evidence": {
+        "SQL_Injection": [
+          "CWE-89",
+          "sql injection"
+        ]
+      },
+      "source_record": {
+        "cveID": "CVE-2025-25181",
+        "vendorProject": "Advantive",
+        "product": "VeraCore",
+        "vulnerabilityName": "Advantive VeraCore SQL Injection Vulnerability",
+        "dateAdded": "2025-03-10",
+        "shortDescription": "Advantive VeraCore contains a SQL injection vulnerability in timeoutWarning.asp that allows a remote attacker to execute arbitrary SQL commands via the PmSess1 parameter.",
+        "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+        "dueDate": "2025-03-31",
+        "knownRansomwareCampaignUse": "Unknown",
+        "forensicTriage": "No",
+        "notes": "https://advantive.my.site.com/support/s/article/Veracore-Release-Notes-2025-1-1-3 ; https://nvd.nist.gov/vuln/detail/CVE-2025-25181",
+        "cwes": [
+          "CWE-89"
+        ]
+      },
+      "expected": {
+        "kev_listed": true,
+        "date_added": "2025-03-10",
+        "due_date": "2025-03-31",
+        "ransomware_use": "Unknown",
+        "forensic_triage": "No",
+        "cwes": [
+          "CWE-89"
+        ]
+      },
+      "evaluation_questions": [
+        "Is CVE-2025-25181 listed in the supplied KEV snapshot?",
+        "What KEV remediation due date is given for CVE-2025-25181?",
+        "What ransomware campaign use status is reported for CVE-2025-25181?",
+        "What forensicTriage value, if any, is provided for CVE-2025-25181?",
+        "What required action is specified for CVE-2025-25181?"
+      ]
+    },
+    {
+      "case_type": "positive_kev",
+      "cve_id": "CVE-2025-57819",
+      "vendor": "Sangoma",
+      "product": "FreePBX",
+      "sampling_category": "SQL_Injection",
+      "classification_evidence": {
+        "SQL_Injection": [
+          "CWE-89"
+        ],
+        "Auth_Bypass": [
+          "CWE-288",
+          "authentication bypass"
+        ],
+        "RCE": [
+          "remote code execution"
+        ]
+      },
+      "source_record": {
+        "cveID": "CVE-2025-57819",
+        "vendorProject": "Sangoma",
+        "product": "FreePBX",
+        "vulnerabilityName": "Sangoma FreePBX Authentication Bypass Vulnerability",
+        "dateAdded": "2025-08-29",
+        "shortDescription": "Sangoma FreePBX contains an authentication bypass vulnerability due to insufficiently sanitized user-supplied data allows unauthenticated access to FreePBX Administrator leading to arbitrary database manipulation and remote code execution.",
+        "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+        "dueDate": "2025-09-19",
+        "knownRansomwareCampaignUse": "Unknown",
+        "forensicTriage": "No",
+        "notes": "https://github.com/FreePBX/security-reporting/security/advisories/GHSA-m42g-xg4c-5f3h ; https://nvd.nist.gov/vuln/detail/CVE-2025-57819",
+        "cwes": [
+          "CWE-89",
+          "CWE-288"
+        ]
+      },
+      "expected": {
+        "kev_listed": true,
+        "date_added": "2025-08-29",
+        "due_date": "2025-09-19",
+        "ransomware_use": "Unknown",
+        "forensic_triage": "No",
+        "cwes": [
+          "CWE-89",
+          "CWE-288"
+        ]
+      },
+      "evaluation_questions": [
+        "Is CVE-2025-57819 listed in the supplied KEV snapshot?",
+        "What KEV remediation due date is given for CVE-2025-57819?",
+        "What ransomware campaign use status is reported for CVE-2025-57819?",
+        "What forensicTriage value, if any, is provided for CVE-2025-57819?",
+        "What required action is specified for CVE-2025-57819?"
+      ]
+    },
+    {
+      "case_type": "positive_kev",
+      "cve_id": "CVE-2026-83548",
+      "vendor": "SonicWall",
+      "product": "SMA1000 Appliances",
+      "sampling_category": "SSRF",
+      "classification_evidence": {
+        "SSRF": [
+          "CWE-918",
+          "server-side request forgery"
+        ]
+      },
+      "source_record": {
+        "cveID": "CVE-2026-83548",
+        "vendorProject": "SonicWall",
+        "product": "SMA1000 Appliances",
+        "vulnerabilityName": "SonicWall SMA1000 Appliances Server-Side Request Forgery Vulnerability",
+        "dateAdded": "2026-09-02",
+        "shortDescription": "SonicWall SMA1000 Appliances contains a server-side request forgery vulnerability that could allow a remote unauthenticated attacker to gain unauthorized access to sensitive functionality and perform unauthorized operations.",
+        "requiredAction": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
+        "dueDate": "2026-09-05",
+        "knownRansomwareCampaignUse": "Unknown",
+        "forensicTriage": "Yes",
+        "notes": "https://psirt.global.sonicwall.com/vuln-detail/SNWLID-2026-0016 ; BOD 26-04: https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk ; Forensics Triage Requirements: https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk ; https://nvd.nist.gov/vuln/detail/CVE-2026-83548",
+        "cwes": [
+          "CWE-918",
+          "CWE-441"
+        ]
+      },
+      "expected": {
+        "kev_listed": true,
+        "date_added": "2026-09-02",
+        "due_date": "2026-09-05",
+        "ransomware_use": "Unknown",
+        "forensic_triage": "Yes",
+        "cwes": [
+          "CWE-918",
+          "CWE-441"
+        ]
+      },
+      "evaluation_questions": [
+        "Is CVE-2026-83548 listed in the supplied KEV snapshot?",
+        "What KEV remediation due date is given for CVE-2026-83548?",
+        "What ransomware campaign use status is reported for CVE-2026-83548?",
+        "What forensicTriage value, if any, is provided for CVE-2026-83548?",
+        "What required action is specified for CVE-2026-83548?"
+      ]
+    },
+    {
+      "case_type": "positive_kev",
+      "cve_id": "CVE-2019-9621",
+      "vendor": "Synacor",
+      "product": "Zimbra Collaboration Suite (ZCS)",
+      "sampling_category": "SSRF",
+      "classification_evidence": {
+        "SSRF": [
+          "CWE-918",
+          "server-side request forgery",
+          "ssrf"
+        ]
+      },
+      "source_record": {
+        "cveID": "CVE-2019-9621",
+        "vendorProject": "Synacor",
+        "product": "Zimbra Collaboration Suite (ZCS)",
+        "vulnerabilityName": "Synacor Zimbra Collaboration Suite (ZCS) Server-Side Request Forgery (SSRF) Vulnerability",
+        "dateAdded": "2025-07-07",
+        "shortDescription": "Synacor Zimbra Collaboration Suite (ZCS) contains a server-side request forgery (SSRF) vulnerability via the ProxyServlet component.",
+        "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+        "dueDate": "2025-07-28",
+        "knownRansomwareCampaignUse": "Unknown",
+        "forensicTriage": "No",
+        "notes": "https://wiki.zimbra.com/wiki/Zimbra_Security_Advisories ; https://wiki.zimbra.com/wiki/Security_Center ; https://nvd.nist.gov/vuln/detail/CVE-2019-9621",
+        "cwes": [
+          "CWE-918",
+          "CWE-807"
+        ]
+      },
+      "expected": {
+        "kev_listed": true,
+        "date_added": "2025-07-07",
+        "due_date": "2025-07-28",
+        "ransomware_use": "Unknown",
+        "forensic_triage": "No",
+        "cwes": [
+          "CWE-918",
+          "CWE-807"
+        ]
+      },
+      "evaluation_questions": [
+        "Is CVE-2019-9621 listed in the supplied KEV snapshot?",
+        "What KEV remediation due date is given for CVE-2019-9621?",
+        "What ransomware campaign use status is reported for CVE-2019-9621?",
+        "What forensicTriage value, if any, is provided for CVE-2019-9621?",
+        "What required action is specified for CVE-2019-9621?"
+      ]
+    },
+    {
+      "case_type": "positive_kev",
+      "cve_id": "CVE-2026-56290",
+      "vendor": "Joomlack",
+      "product": "Page Builder",
+      "sampling_category": "Unrestricted_Upload",
+      "classification_evidence": {
+        "Access_PrivEsc": [
+          "CWE-284"
+        ],
+        "RCE": [
+          "remote code execution"
+        ],
+        "Unrestricted_Upload": [
+          "arbitrary file upload"
+        ]
+      },
+      "source_record": {
+        "cveID": "CVE-2026-56290",
+        "vendorProject": "Joomlack",
+        "product": "Page Builder",
+        "vulnerabilityName": "Joomlack Page Builder Improper Access Control Vulnerability",
+        "dateAdded": "2026-07-07",
+        "shortDescription": "Joomlack Page Builder contains an improper access control vulnerability that could allow for remote code execution via unauthenticated arbitrary file upload.",
+        "requiredAction": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
+        "dueDate": "2026-07-10",
+        "knownRansomwareCampaignUse": "Unknown",
+        "forensicTriage": "Yes",
+        "notes": "https://www.joomlack.fr/en/joomla-extensions/page-builder-ck ; BOD 26-04: https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk ; Forensics Triage Requirements: https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk ; https://nvd.nist.gov/vuln/detail/CVE-2026-56290",
+        "cwes": [
+          "CWE-284"
+        ]
+      },
+      "expected": {
+        "kev_listed": true,
+        "date_added": "2026-07-07",
+        "due_date": "2026-07-10",
+        "ransomware_use": "Unknown",
+        "forensic_triage": "Yes",
+        "cwes": [
+          "CWE-284"
+        ]
+      },
+      "evaluation_questions": [
+        "Is CVE-2026-56290 listed in the supplied KEV snapshot?",
+        "What KEV remediation due date is given for CVE-2026-56290?",
+        "What ransomware campaign use status is reported for CVE-2026-56290?",
+        "What forensicTriage value, if any, is provided for CVE-2026-56290?",
+        "What required action is specified for CVE-2026-56290?"
+      ]
+    },
+    {
+      "case_type": "positive_kev",
+      "cve_id": "CVE-2024-7399",
+      "vendor": "Samsung",
+      "product": "MagicINFO 9 Server",
+      "sampling_category": "Unrestricted_Upload",
+      "classification_evidence": {
+        "Path_Traversal": [
+          "CWE-22",
+          "path traversal"
+        ],
+        "Unrestricted_Upload": [
+          "CWE-434"
+        ]
+      },
+      "source_record": {
+        "cveID": "CVE-2024-7399",
+        "vendorProject": "Samsung",
+        "product": "MagicINFO 9 Server",
+        "vulnerabilityName": "Samsung MagicINFO 9 Server Path Traversal Vulnerability",
+        "dateAdded": "2026-04-24",
+        "shortDescription": "Samsung MagicINFO 9 Server contains a path traversal vulnerability that could allow an attacker to write arbitrary files as system authority.",
+        "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+        "dueDate": "2026-05-08",
+        "knownRansomwareCampaignUse": "Unknown",
+        "forensicTriage": "No",
+        "notes": "https://security.samsungtv.com/securityUpdates ; https://nvd.nist.gov/vuln/detail/CVE-2024-7399",
+        "cwes": [
+          "CWE-22",
+          "CWE-434"
+        ]
+      },
+      "expected": {
+        "kev_listed": true,
+        "date_added": "2026-04-24",
+        "due_date": "2026-05-08",
+        "ransomware_use": "Unknown",
+        "forensic_triage": "No",
+        "cwes": [
+          "CWE-22",
+          "CWE-434"
+        ]
+      },
+      "evaluation_questions": [
+        "Is CVE-2024-7399 listed in the supplied KEV snapshot?",
+        "What KEV remediation due date is given for CVE-2024-7399?",
+        "What ransomware campaign use status is reported for CVE-2024-7399?",
+        "What forensicTriage value, if any, is provided for CVE-2024-7399?",
+        "What required action is specified for CVE-2024-7399?"
+      ]
+    },
+    {
+      "case_type": "positive_kev",
+      "cve_id": "CVE-2026-1603",
+      "vendor": "Ivanti",
+      "product": "Endpoint Manager (EPM)",
+      "sampling_category": "Auth_Bypass",
+      "classification_evidence": {
+        "Auth_Bypass": [
+          "CWE-288",
+          "authentication bypass"
+        ]
+      },
+      "source_record": {
+        "cveID": "CVE-2026-1603",
+        "vendorProject": "Ivanti",
+        "product": "Endpoint Manager (EPM)",
+        "vulnerabilityName": "Ivanti Endpoint Manager (EPM) Authentication Bypass Vulnerability",
+        "dateAdded": "2026-03-09",
+        "shortDescription": "Ivanti Endpoint Manager (EPM) contains an authentication bypass using an alternate path or channel vulnerability that could allow a remote unauthenticated attacker to leak specific stored credential data.",
+        "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+        "dueDate": "2026-03-23",
+        "knownRansomwareCampaignUse": "Unknown",
+        "forensicTriage": "No",
+        "notes": "https://hub.ivanti.com/s/article/Security-Advisory-EPM-February-2026-for-EPM-2024?language=en_US ; https://nvd.nist.gov/vuln/detail/CVE-2026-1603",
+        "cwes": [
+          "CWE-288"
+        ]
+      },
+      "expected": {
+        "kev_listed": true,
+        "date_added": "2026-03-09",
+        "due_date": "2026-03-23",
+        "ransomware_use": "Unknown",
+        "forensic_triage": "No",
+        "cwes": [
+          "CWE-288"
+        ]
+      },
+      "evaluation_questions": [
+        "Is CVE-2026-1603 listed in the supplied KEV snapshot?",
+        "What KEV remediation due date is given for CVE-2026-1603?",
+        "What ransomware campaign use status is reported for CVE-2026-1603?",
+        "What forensicTriage value, if any, is provided for CVE-2026-1603?",
+        "What required action is specified for CVE-2026-1603?"
+      ]
+    },
+    {
+      "case_type": "positive_kev",
+      "cve_id": "CVE-2025-32433",
+      "vendor": "Erlang",
+      "product": "Erlang/OTP",
+      "sampling_category": "Auth_Bypass",
+      "classification_evidence": {
+        "Auth_Bypass": [
+          "CWE-306",
+          "missing authentication"
+        ],
+        "RCE": [
+          "remote code execution"
+        ]
+      },
+      "source_record": {
+        "cveID": "CVE-2025-32433",
+        "vendorProject": "Erlang",
+        "product": "Erlang/OTP",
+        "vulnerabilityName": "Erlang Erlang/OTP SSH Server Missing Authentication for Critical Function Vulnerability",
+        "dateAdded": "2025-06-09",
+        "shortDescription": "Erlang Erlang/OTP SSH server contains a missing authentication for critical function vulnerability. This could allow an attacker to execute arbitrary commands without valid credentials, potentially leading to unauthenticated remote code execution (RCE). By exploiting a flaw in how SSH protocol messages are handled, a malicious actor could gain unauthorized access to affected systems. This vulnerability could affect various products that implement Erlang/OTP SSH server, including—but not limited to—Cisco, NetApp, and SUSE.",
+        "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+        "dueDate": "2025-06-30",
+        "knownRansomwareCampaignUse": "Unknown",
+        "forensicTriage": "No",
+        "notes": "This vulnerability affects a common open-source project, third-party library, or a protocol used by different products. For more information, please see: https://github.com/erlang/otp/security/advisories/GHSA-37cp-fgq5-7wc2 ; https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-erlang-otp-ssh-xyZZy ; https://nvd.nist.gov/vuln/detail/CVE-2025-32433",
+        "cwes": [
+          "CWE-306"
+        ]
+      },
+      "expected": {
+        "kev_listed": true,
+        "date_added": "2025-06-09",
+        "due_date": "2025-06-30",
+        "ransomware_use": "Unknown",
+        "forensic_triage": "No",
+        "cwes": [
+          "CWE-306"
+        ]
+      },
+      "evaluation_questions": [
+        "Is CVE-2025-32433 listed in the supplied KEV snapshot?",
+        "What KEV remediation due date is given for CVE-2025-32433?",
+        "What ransomware campaign use status is reported for CVE-2025-32433?",
+        "What forensicTriage value, if any, is provided for CVE-2025-32433?",
+        "What required action is specified for CVE-2025-32433?"
+      ]
+    },
+    {
+      "case_type": "positive_kev",
+      "cve_id": "CVE-2020-0688",
+      "vendor": "Microsoft",
+      "product": "Exchange Server",
+      "sampling_category": "Auth_Bypass",
+      "classification_evidence": {
+        "Auth_Bypass": [
+          "CWE-287"
+        ],
+        "RCE": [
+          "remote code execution"
+        ]
+      },
+      "source_record": {
+        "cveID": "CVE-2020-0688",
+        "vendorProject": "Microsoft",
+        "product": "Exchange Server",
+        "vulnerabilityName": "Microsoft Exchange Server Validation Key Remote Code Execution Vulnerability",
+        "dateAdded": "2021-11-03",
+        "shortDescription": "Microsoft Exchange Server Validation Key fails to properly create unique keys at install time, allowing for remote code execution.",
+        "requiredAction": "Apply updates per vendor instructions.",
+        "dueDate": "2022-05-03",
+        "knownRansomwareCampaignUse": "Known",
+        "forensicTriage": "No",
+        "notes": "https://nvd.nist.gov/vuln/detail/CVE-2020-0688",
+        "cwes": [
+          "CWE-287"
+        ]
+      },
+      "expected": {
+        "kev_listed": true,
+        "date_added": "2021-11-03",
+        "due_date": "2022-05-03",
+        "ransomware_use": "Known",
+        "forensic_triage": "No",
+        "cwes": [
+          "CWE-287"
+        ]
+      },
+      "evaluation_questions": [
+        "Is CVE-2020-0688 listed in the supplied KEV snapshot?",
+        "What KEV remediation due date is given for CVE-2020-0688?",
+        "What ransomware campaign use status is reported for CVE-2020-0688?",
+        "What forensicTriage value, if any, is provided for CVE-2020-0688?",
+        "What required action is specified for CVE-2020-0688?"
+      ]
+    },
+    {
+      "case_type": "positive_kev",
+      "cve_id": "CVE-2026-65400",
+      "vendor": "Apple",
+      "product": "macOS",
+      "sampling_category": "Auth_Bypass",
+      "classification_evidence": {
+        "Auth_Bypass": [
+          "CWE-287",
+          "improper authentication"
+        ]
+      },
+      "source_record": {
+        "cveID": "CVE-2026-65400",
+        "vendorProject": "Apple",
+        "product": "macOS",
+        "vulnerabilityName": "Apple macOS Improper Authentication Vulnerability",
+        "dateAdded": "2026-08-18",
+        "shortDescription": "Apple macOS contains an improper authentication vulnerability that could allow an attacker on the network to authenticate to Screen Sharing without valid credentials.",
+        "requiredAction": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
+        "dueDate": "2026-08-21",
+        "knownRansomwareCampaignUse": "Unknown",
+        "forensicTriage": "Yes",
+        "notes": "https://support.apple.com/en-us/148170; https://support.apple.com/en-us/148171; https://support.apple.com/en-us/148172 ; BOD 26-04: https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk ; Forensics Triage Requirements: https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk ; https://nvd.nist.gov/vuln/detail/CVE-2026-65400",
+        "cwes": [
+          "CWE-287"
+        ]
+      },
+      "expected": {
+        "kev_listed": true,
+        "date_added": "2026-08-18",
+        "due_date": "2026-08-21",
+        "ransomware_use": "Unknown",
+        "forensic_triage": "Yes",
+        "cwes": [
+          "CWE-287"
+        ]
+      },
+      "evaluation_questions": [
+        "Is CVE-2026-65400 listed in the supplied KEV snapshot?",
+        "What KEV remediation due date is given for CVE-2026-65400?",
+        "What ransomware campaign use status is reported for CVE-2026-65400?",
+        "What forensicTriage value, if any, is provided for CVE-2026-65400?",
+        "What required action is specified for CVE-2026-65400?"
+      ]
+    },
+    {
+      "case_type": "positive_kev",
+      "cve_id": "CVE-2026-18577",
+      "vendor": "N-able",
+      "product": "N-central",
+      "sampling_category": "Auth_Bypass",
+      "classification_evidence": {
+        "Auth_Bypass": [
+          "CWE-288",
+          "authentication bypass"
+        ]
+      },
+      "source_record": {
+        "cveID": "CVE-2026-18577",
+        "vendorProject": "N-able",
+        "product": "N-central",
+        "vulnerabilityName": "N-able N-central Authentication Bypass Using an Alternate Path or Channel Vulnerability",
+        "dateAdded": "2026-08-03",
+        "shortDescription": "N-able N-central contains an authentication bypass using an alternate path or channel allows for authentication bypass and account takeover in N-central. This vulnerability is the result of an incomplete patch for CVE-2026-18556.",
+        "requiredAction": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
+        "dueDate": "2026-08-06",
+        "knownRansomwareCampaignUse": "Unknown",
+        "forensicTriage": "Yes",
+        "notes": "https://documentation.n-able.com/N-central/Release_Notes/GA/Content/N-central_2026.3_HF1_Release_Notes.htm ; https://status.n-able.com/2026/08/02/n-central-2026-3-hotfix-1-mitigation-for-cve-2026-18577/ ; BOD 26-04: https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk ; Forensics Triage Requirements: https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk ; https://nvd.nist.gov/vuln/detail/CVE-2026-18577",
+        "cwes": [
+          "CWE-288"
+        ]
+      },
+      "expected": {
+        "kev_listed": true,
+        "date_added": "2026-08-03",
+        "due_date": "2026-08-06",
+        "ransomware_use": "Unknown",
+        "forensic_triage": "Yes",
+        "cwes": [
+          "CWE-288"
+        ]
+      },
+      "evaluation_questions": [
+        "Is CVE-2026-18577 listed in the supplied KEV snapshot?",
+        "What KEV remediation due date is given for CVE-2026-18577?",
+        "What ransomware campaign use status is reported for CVE-2026-18577?",
+        "What forensicTriage value, if any, is provided for CVE-2026-18577?",
+        "What required action is specified for CVE-2026-18577?"
+      ]
+    },
+    {
+      "case_type": "positive_kev",
+      "cve_id": "CVE-2021-32030",
+      "vendor": "ASUS",
+      "product": "Routers",
+      "sampling_category": "Auth_Bypass",
+      "classification_evidence": {
+        "Auth_Bypass": [
+          "CWE-287",
+          "improper authentication"
+        ]
+      },
+      "source_record": {
+        "cveID": "CVE-2021-32030",
+        "vendorProject": "ASUS",
+        "product": "Routers",
+        "vulnerabilityName": "ASUS Routers Improper Authentication Vulnerability",
+        "dateAdded": "2025-06-02",
+        "shortDescription": "ASUS Lyra Mini and ASUS GT-AC2900 devices contain an improper authentication vulnerability that allows an attacker to gain unauthorized access to the administrative interface. The impacted products could be end-of-life (EoL) and/or end-of-service (EoS). Users should discontinue product utilization.",
+        "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+        "dueDate": "2025-06-23",
+        "knownRansomwareCampaignUse": "Unknown",
+        "forensicTriage": "No",
+        "notes": "https://www.asus.com/us/supportonly/lyra%20mini/helpdesk_bios/ ; https://www.asus.com/us/supportonly/rog%20rapture%20gt-ac2900/helpdesk_bios/; https://nvd.nist.gov/vuln/detail/CVE-2021-32030",
+        "cwes": [
+          "CWE-287"
+        ]
+      },
+      "expected": {
+        "kev_listed": true,
+        "date_added": "2025-06-02",
+        "due_date": "2025-06-23",
+        "ransomware_use": "Unknown",
+        "forensic_triage": "No",
+        "cwes": [
+          "CWE-287"
+        ]
+      },
+      "evaluation_questions": [
+        "Is CVE-2021-32030 listed in the supplied KEV snapshot?",
+        "What KEV remediation due date is given for CVE-2021-32030?",
+        "What ransomware campaign use status is reported for CVE-2021-32030?",
+        "What forensicTriage value, if any, is provided for CVE-2021-32030?",
+        "What required action is specified for CVE-2021-32030?"
+      ]
+    },
+    {
+      "case_type": "positive_kev",
+      "cve_id": "CVE-2024-13159",
+      "vendor": "Ivanti",
+      "product": "Endpoint Manager (EPM)",
+      "sampling_category": "Path_Traversal",
+      "classification_evidence": {
+        "Path_Traversal": [
+          "path traversal"
+        ],
+        "InfoLeak_Crypto": [
+          "sensitive information"
+        ]
+      },
+      "source_record": {
+        "cveID": "CVE-2024-13159",
+        "vendorProject": "Ivanti",
+        "product": "Endpoint Manager (EPM)",
+        "vulnerabilityName": "Ivanti Endpoint Manager (EPM) Absolute Path Traversal Vulnerability",
+        "dateAdded": "2025-03-10",
+        "shortDescription": "Ivanti Endpoint Manager (EPM) contains an absolute path traversal vulnerability that allows a remote unauthenticated attacker to leak sensitive information.",
+        "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+        "dueDate": "2025-03-31",
+        "knownRansomwareCampaignUse": "Unknown",
+        "forensicTriage": "No",
+        "notes": "https://forums.ivanti.com/s/article/Security-Advisory-EPM-January-2025-for-EPM-2024-and-EPM-2022-SU6?language=en_US ; https://nvd.nist.gov/vuln/detail/CVE-2024-13159",
+        "cwes": [
+          "CWE-36"
+        ]
+      },
+      "expected": {
+        "kev_listed": true,
+        "date_added": "2025-03-10",
+        "due_date": "2025-03-31",
+        "ransomware_use": "Unknown",
+        "forensic_triage": "No",
+        "cwes": [
+          "CWE-36"
+        ]
+      },
+      "evaluation_questions": [
+        "Is CVE-2024-13159 listed in the supplied KEV snapshot?",
+        "What KEV remediation due date is given for CVE-2024-13159?",
+        "What ransomware campaign use status is reported for CVE-2024-13159?",
+        "What forensicTriage value, if any, is provided for CVE-2024-13159?",
+        "What required action is specified for CVE-2024-13159?"
+      ]
+    },
+    {
+      "case_type": "positive_kev",
+      "cve_id": "CVE-2016-0752",
+      "vendor": "Rails",
+      "product": "Ruby on Rails",
+      "sampling_category": "Path_Traversal",
+      "classification_evidence": {
+        "Path_Traversal": [
+          "CWE-22",
+          "directory traversal"
+        ]
+      },
+      "source_record": {
+        "cveID": "CVE-2016-0752",
+        "vendorProject": "Rails",
+        "product": "Ruby on Rails",
+        "vulnerabilityName": "Ruby on Rails Directory Traversal Vulnerability",
+        "dateAdded": "2022-03-25",
+        "shortDescription": "Directory traversal vulnerability in Action View in Ruby on Rails allows remote attackers to read arbitrary files.",
+        "requiredAction": "Apply updates per vendor instructions.",
+        "dueDate": "2022-04-15",
+        "knownRansomwareCampaignUse": "Unknown",
+        "forensicTriage": "No",
+        "notes": "https://nvd.nist.gov/vuln/detail/CVE-2016-0752",
+        "cwes": [
+          "CWE-22"
+        ]
+      },
+      "expected": {
+        "kev_listed": true,
+        "date_added": "2022-03-25",
+        "due_date": "2022-04-15",
+        "ransomware_use": "Unknown",
+        "forensic_triage": "No",
+        "cwes": [
+          "CWE-22"
+        ]
+      },
+      "evaluation_questions": [
+        "Is CVE-2016-0752 listed in the supplied KEV snapshot?",
+        "What KEV remediation due date is given for CVE-2016-0752?",
+        "What ransomware campaign use status is reported for CVE-2016-0752?",
+        "What forensicTriage value, if any, is provided for CVE-2016-0752?",
+        "What required action is specified for CVE-2016-0752?"
+      ]
+    },
+    {
+      "case_type": "positive_kev",
+      "cve_id": "CVE-2024-57727",
+      "vendor": "SimpleHelp",
+      "product": "SimpleHelp",
+      "sampling_category": "Path_Traversal",
+      "classification_evidence": {
+        "Path_Traversal": [
+          "CWE-22",
+          "path traversal"
+        ]
+      },
+      "source_record": {
+        "cveID": "CVE-2024-57727",
+        "vendorProject": "SimpleHelp",
+        "product": "SimpleHelp",
+        "vulnerabilityName": "SimpleHelp Path Traversal Vulnerability",
+        "dateAdded": "2025-02-13",
+        "shortDescription": "SimpleHelp remote support software contains multiple path traversal vulnerabilities that allow unauthenticated remote attackers to download arbitrary files from the SimpleHelp host via crafted HTTP requests. These files may include server configuration files and hashed user passwords.",
+        "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+        "dueDate": "2025-03-06",
+        "knownRansomwareCampaignUse": "Known",
+        "forensicTriage": "No",
+        "notes": "https://simple-help.com/kb---security-vulnerabilities-01-2025 ; Additional CISA Mitigation Instructions: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-163a ; https://nvd.nist.gov/vuln/detail/CVE-2024-57727",
+        "cwes": [
+          "CWE-22"
+        ]
+      },
+      "expected": {
+        "kev_listed": true,
+        "date_added": "2025-02-13",
+        "due_date": "2025-03-06",
+        "ransomware_use": "Known",
+        "forensic_triage": "No",
+        "cwes": [
+          "CWE-22"
+        ]
+      },
+      "evaluation_questions": [
+        "Is CVE-2024-57727 listed in the supplied KEV snapshot?",
+        "What KEV remediation due date is given for CVE-2024-57727?",
+        "What ransomware campaign use status is reported for CVE-2024-57727?",
+        "What forensicTriage value, if any, is provided for CVE-2024-57727?",
+        "What required action is specified for CVE-2024-57727?"
+      ]
+    },
+    {
+      "case_type": "positive_kev",
+      "cve_id": "CVE-2019-1653",
+      "vendor": "Cisco",
+      "product": "Small Business RV320 and RV325 Routers",
+      "sampling_category": "InfoLeak_Crypto",
+      "classification_evidence": {
+        "Access_PrivEsc": [
+          "CWE-284"
+        ],
+        "InfoLeak_Crypto": [
+          "information disclosure"
+        ]
+      },
+      "source_record": {
+        "cveID": "CVE-2019-1653",
+        "vendorProject": "Cisco",
+        "product": "Small Business RV320 and RV325 Routers",
+        "vulnerabilityName": "Cisco Small Business RV320 and RV325 Routers Information Disclosure Vulnerability",
+        "dateAdded": "2021-11-03",
+        "shortDescription": "Cisco Small Business RV320 and RV325 Dual Gigabit WAN VPN Routers contain improper access controls for URLs. Exploitation could allow an attacker to download the router configuration or detailed diagnostic information.",
+        "requiredAction": "Apply updates per vendor instructions.",
+        "dueDate": "2022-05-03",
+        "knownRansomwareCampaignUse": "Unknown",
+        "forensicTriage": "No",
+        "notes": "https://nvd.nist.gov/vuln/detail/CVE-2019-1653",
+        "cwes": [
+          "CWE-284"
+        ]
+      },
+      "expected": {
+        "kev_listed": true,
+        "date_added": "2021-11-03",
+        "due_date": "2022-05-03",
+        "ransomware_use": "Unknown",
+        "forensic_triage": "No",
+        "cwes": [
+          "CWE-284"
+        ]
+      },
+      "evaluation_questions": [
+        "Is CVE-2019-1653 listed in the supplied KEV snapshot?",
+        "What KEV remediation due date is given for CVE-2019-1653?",
+        "What ransomware campaign use status is reported for CVE-2019-1653?",
+        "What forensicTriage value, if any, is provided for CVE-2019-1653?",
+        "What required action is specified for CVE-2019-1653?"
+      ]
+    },
+    {
+      "case_type": "positive_kev",
+      "cve_id": "CVE-2021-22054",
+      "vendor": "Omnissa",
+      "product": "Workspace One UEM",
+      "sampling_category": "InfoLeak_Crypto",
+      "classification_evidence": {
+        "SSRF": [
+          "CWE-918",
+          "server-side request forgery",
+          "ssrf"
+        ],
+        "InfoLeak_Crypto": [
+          "sensitive information"
+        ]
+      },
+      "source_record": {
+        "cveID": "CVE-2021-22054",
+        "vendorProject": "Omnissa",
+        "product": "Workspace One UEM",
+        "vulnerabilityName": "Omnissa Workspace ONE Server-Side Request Forgery",
+        "dateAdded": "2026-03-09",
+        "shortDescription": "Omnissa Workspace One UEM formerly known as VMware Workspace One UEM contains a server-side request forgery (SSRF) vulnerability that could allow a malicious actor with network access to UEM to send their requests without authentication and to gain access to sensitive information.",
+        "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+        "dueDate": "2026-03-23",
+        "knownRansomwareCampaignUse": "Unknown",
+        "forensicTriage": "No",
+        "notes": "https://web.archive.org/web/20211222154335/https://www.vmware.com/security/advisories/VMSA-2021-0029.html ; https://nvd.nist.gov/vuln/detail/CVE-2021-22054",
+        "cwes": [
+          "CWE-918"
+        ]
+      },
+      "expected": {
+        "kev_listed": true,
+        "date_added": "2026-03-09",
+        "due_date": "2026-03-23",
+        "ransomware_use": "Unknown",
+        "forensic_triage": "No",
+        "cwes": [
+          "CWE-918"
+        ]
+      },
+      "evaluation_questions": [
+        "Is CVE-2021-22054 listed in the supplied KEV snapshot?",
+        "What KEV remediation due date is given for CVE-2021-22054?",
+        "What ransomware campaign use status is reported for CVE-2021-22054?",
+        "What forensicTriage value, if any, is provided for CVE-2021-22054?",
+        "What required action is specified for CVE-2021-22054?"
+      ]
+    },
+    {
+      "case_type": "positive_kev",
+      "cve_id": "CVE-2024-12356",
+      "vendor": "BeyondTrust",
+      "product": "Privileged Remote Access (PRA) and Remote Support (RS)",
+      "sampling_category": "OS_Cmd_Injection",
+      "classification_evidence": {
+        "OS_Cmd_Injection": [
+          "CWE-77",
+          "command injection"
+        ]
+      },
+      "source_record": {
+        "cveID": "CVE-2024-12356",
+        "vendorProject": "BeyondTrust",
+        "product": "Privileged Remote Access (PRA) and Remote Support (RS)",
+        "vulnerabilityName": "BeyondTrust Privileged Remote Access (PRA) and Remote Support (RS) Command Injection Vulnerability",
+        "dateAdded": "2024-12-19",
+        "shortDescription": "BeyondTrust Privileged Remote Access (PRA) and Remote Support (RS) contain a command injection vulnerability, which can allow an unauthenticated attacker to inject commands that are run as a site user.",
+        "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+        "dueDate": "2024-12-27",
+        "knownRansomwareCampaignUse": "Unknown",
+        "forensicTriage": "No",
+        "notes": "https://www.beyondtrust.com/trust-center/security-advisories/bt24-10 ; https://nvd.nist.gov/vuln/detail/CVE-2024-12356",
+        "cwes": [
+          "CWE-77"
+        ]
+      },
+      "expected": {
+        "kev_listed": true,
+        "date_added": "2024-12-19",
+        "due_date": "2024-12-27",
+        "ransomware_use": "Unknown",
+        "forensic_triage": "No",
+        "cwes": [
+          "CWE-77"
+        ]
+      },
+      "evaluation_questions": [
+        "Is CVE-2024-12356 listed in the supplied KEV snapshot?",
+        "What KEV remediation due date is given for CVE-2024-12356?",
+        "What ransomware campaign use status is reported for CVE-2024-12356?",
+        "What forensicTriage value, if any, is provided for CVE-2024-12356?",
+        "What required action is specified for CVE-2024-12356?"
+      ]
+    },
+    {
+      "case_type": "positive_kev",
+      "cve_id": "CVE-2024-3400",
+      "vendor": "Palo Alto Networks",
+      "product": "PAN-OS",
+      "sampling_category": "OS_Cmd_Injection",
+      "classification_evidence": {
+        "OS_Cmd_Injection": [
+          "CWE-77",
+          "command injection"
+        ]
+      },
+      "source_record": {
+        "cveID": "CVE-2024-3400",
+        "vendorProject": "Palo Alto Networks",
+        "product": "PAN-OS",
+        "vulnerabilityName": "Palo Alto Networks PAN-OS Command Injection Vulnerability",
+        "dateAdded": "2024-04-12",
+        "shortDescription": "Palo Alto Networks PAN-OS GlobalProtect feature contains a command injection vulnerability that allows an unauthenticated attacker to execute commands with root privileges on the firewall.",
+        "requiredAction": "Apply mitigations per vendor instructions as they become available. Otherwise, users with vulnerable versions of affected devices should enable Threat Prevention IDs available from the vendor. See the vendor bulletin for more details and a patch release schedule.",
+        "dueDate": "2024-04-19",
+        "knownRansomwareCampaignUse": "Known",
+        "forensicTriage": "No",
+        "notes": "https://security.paloaltonetworks.com/CVE-2024-3400 ;   https://nvd.nist.gov/vuln/detail/CVE-2024-3400",
+        "cwes": [
+          "CWE-20",
+          "CWE-77"
+        ]
+      },
+      "expected": {
+        "kev_listed": true,
+        "date_added": "2024-04-12",
+        "due_date": "2024-04-19",
+        "ransomware_use": "Known",
+        "forensic_triage": "No",
+        "cwes": [
+          "CWE-20",
+          "CWE-77"
+        ]
+      },
+      "evaluation_questions": [
+        "Is CVE-2024-3400 listed in the supplied KEV snapshot?",
+        "What KEV remediation due date is given for CVE-2024-3400?",
+        "What ransomware campaign use status is reported for CVE-2024-3400?",
+        "What forensicTriage value, if any, is provided for CVE-2024-3400?",
+        "What required action is specified for CVE-2024-3400?"
+      ]
+    },
+    {
+      "case_type": "positive_kev",
+      "cve_id": "CVE-2019-20500",
+      "vendor": "D-Link",
+      "product": "DWL-2600AP Access Point",
+      "sampling_category": "OS_Cmd_Injection",
+      "classification_evidence": {
+        "OS_Cmd_Injection": [
+          "CWE-78",
+          "command injection"
+        ]
+      },
+      "source_record": {
+        "cveID": "CVE-2019-20500",
+        "vendorProject": "D-Link",
+        "product": "DWL-2600AP Access Point",
+        "vulnerabilityName": "D-Link DWL-2600AP Access Point Command Injection Vulnerability",
+        "dateAdded": "2023-06-29",
+        "shortDescription": "D-Link DWL-2600AP access point contains an authenticated command injection vulnerability via the Save Configuration functionality in the Web interface, using shell metacharacters in the admin.cgi?action=config_save configBackup or downloadServerip parameter.",
+        "requiredAction": "Apply updates per vendor instructions or discontinue use of the product if updates are unavailable.",
+        "dueDate": "2023-07-20",
+        "knownRansomwareCampaignUse": "Unknown",
+        "forensicTriage": "No",
+        "notes": "https://supportannouncement.us.dlink.com/announcement/publication.aspx?name=SAP10113; https://nvd.nist.gov/vuln/detail/CVE-2019-20500",
+        "cwes": [
+          "CWE-78"
+        ]
+      },
+      "expected": {
+        "kev_listed": true,
+        "date_added": "2023-06-29",
+        "due_date": "2023-07-20",
+        "ransomware_use": "Unknown",
+        "forensic_triage": "No",
+        "cwes": [
+          "CWE-78"
+        ]
+      },
+      "evaluation_questions": [
+        "Is CVE-2019-20500 listed in the supplied KEV snapshot?",
+        "What KEV remediation due date is given for CVE-2019-20500?",
+        "What ransomware campaign use status is reported for CVE-2019-20500?",
+        "What forensicTriage value, if any, is provided for CVE-2019-20500?",
+        "What required action is specified for CVE-2019-20500?"
+      ]
+    },
+    {
+      "case_type": "positive_kev",
+      "cve_id": "CVE-2010-3035",
+      "vendor": "Cisco",
+      "product": "IOS XR",
+      "sampling_category": "DoS",
+      "classification_evidence": {
+        "DoS": [
+          "denial-of-service"
+        ]
+      },
+      "source_record": {
+        "cveID": "CVE-2010-3035",
+        "vendorProject": "Cisco",
+        "product": "IOS XR",
+        "vulnerabilityName": "Cisco IOS XR Border Gateway Protocol (BGP) Denial-of-Service Vulnerability",
+        "dateAdded": "2022-03-25",
+        "shortDescription": "Cisco IOS XR, when BGP is the configured routing feature, allows remote attackers to cause a denial-of-service (DoS).",
+        "requiredAction": "Apply updates per vendor instructions.",
+        "dueDate": "2022-04-15",
+        "knownRansomwareCampaignUse": "Unknown",
+        "forensicTriage": "No",
+        "notes": "https://nvd.nist.gov/vuln/detail/CVE-2010-3035",
+        "cwes": [
+          "CWE-20"
+        ]
+      },
+      "expected": {
+        "kev_listed": true,
+        "date_added": "2022-03-25",
+        "due_date": "2022-04-15",
+        "ransomware_use": "Unknown",
+        "forensic_triage": "No",
+        "cwes": [
+          "CWE-20"
+        ]
+      },
+      "evaluation_questions": [
+        "Is CVE-2010-3035 listed in the supplied KEV snapshot?",
+        "What KEV remediation due date is given for CVE-2010-3035?",
+        "What ransomware campaign use status is reported for CVE-2010-3035?",
+        "What forensicTriage value, if any, is provided for CVE-2010-3035?",
+        "What required action is specified for CVE-2010-3035?"
+      ]
+    },
+    {
+      "case_type": "positive_kev",
+      "cve_id": "CVE-2015-5122",
+      "vendor": "Adobe",
+      "product": "Flash Player",
+      "sampling_category": "DoS",
+      "classification_evidence": {
+        "DoS": [
+          "denial-of-service"
+        ]
+      },
+      "source_record": {
+        "cveID": "CVE-2015-5122",
+        "vendorProject": "Adobe",
+        "product": "Flash Player",
+        "vulnerabilityName": "Adobe Flash Player Use-After-Free Vulnerability",
+        "dateAdded": "2022-04-13",
+        "shortDescription": "Use-after-free vulnerability in the DisplayObject class in the ActionScript 3 (AS3) implementation in Adobe Flash Player allows remote attackers to execute code or cause a denial-of-service (DoS).",
+        "requiredAction": "The impacted product is end-of-life and should be disconnected if still in use.",
+        "dueDate": "2022-05-04",
+        "knownRansomwareCampaignUse": "Unknown",
+        "forensicTriage": "No",
+        "notes": "https://nvd.nist.gov/vuln/detail/CVE-2015-5122",
+        "cwes": [
+          "CWE-416"
+        ]
+      },
+      "expected": {
+        "kev_listed": true,
+        "date_added": "2022-04-13",
+        "due_date": "2022-05-04",
+        "ransomware_use": "Unknown",
+        "forensic_triage": "No",
+        "cwes": [
+          "CWE-416"
+        ]
+      },
+      "evaluation_questions": [
+        "Is CVE-2015-5122 listed in the supplied KEV snapshot?",
+        "What KEV remediation due date is given for CVE-2015-5122?",
+        "What ransomware campaign use status is reported for CVE-2015-5122?",
+        "What forensicTriage value, if any, is provided for CVE-2015-5122?",
+        "What required action is specified for CVE-2015-5122?"
+      ]
+    },
+    {
+      "case_type": "positive_kev",
+      "cve_id": "CVE-2023-23397",
+      "vendor": "Microsoft",
+      "product": "Office",
+      "sampling_category": "Access_PrivEsc",
+      "classification_evidence": {
+        "Access_PrivEsc": [
+          "privilege escalation"
+        ]
+      },
+      "source_record": {
+        "cveID": "CVE-2023-23397",
+        "vendorProject": "Microsoft",
+        "product": "Office",
+        "vulnerabilityName": "Microsoft Office Outlook Privilege Escalation Vulnerability",
+        "dateAdded": "2023-03-14",
+        "shortDescription": "Microsoft Office Outlook contains a privilege escalation vulnerability that allows for a NTLM Relay attack against another service to authenticate as the user.",
+        "requiredAction": "Apply updates per vendor instructions.",
+        "dueDate": "2023-04-04",
+        "knownRansomwareCampaignUse": "Unknown",
+        "forensicTriage": "No",
+        "notes": "https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2023-23397, https://msrc.microsoft.com/blog/2023/03/microsoft-mitigates-outlook-elevation-of-privilege-vulnerability/, ;  https://nvd.nist.gov/vuln/detail/CVE-2023-23397",
+        "cwes": [
+          "CWE-294"
+        ]
+      },
+      "expected": {
+        "kev_listed": true,
+        "date_added": "2023-03-14",
+        "due_date": "2023-04-04",
+        "ransomware_use": "Unknown",
+        "forensic_triage": "No",
+        "cwes": [
+          "CWE-294"
+        ]
+      },
+      "evaluation_questions": [
+        "Is CVE-2023-23397 listed in the supplied KEV snapshot?",
+        "What KEV remediation due date is given for CVE-2023-23397?",
+        "What ransomware campaign use status is reported for CVE-2023-23397?",
+        "What forensicTriage value, if any, is provided for CVE-2023-23397?",
+        "What required action is specified for CVE-2023-23397?"
+      ]
+    },
+    {
+      "case_type": "positive_kev",
+      "cve_id": "CVE-2024-20767",
+      "vendor": "Adobe",
+      "product": "ColdFusion",
+      "sampling_category": "Access_PrivEsc",
+      "classification_evidence": {
+        "Access_PrivEsc": [
+          "CWE-284"
+        ]
+      },
+      "source_record": {
+        "cveID": "CVE-2024-20767",
+        "vendorProject": "Adobe",
+        "product": "ColdFusion",
+        "vulnerabilityName": "Adobe ColdFusion Improper Access Control Vulnerability",
+        "dateAdded": "2024-12-16",
+        "shortDescription": "Adobe ColdFusion contains an improper access control vulnerability that could allow an attacker to access or modify restricted files via an internet-exposed admin panel.",
+        "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+        "dueDate": "2025-01-06",
+        "knownRansomwareCampaignUse": "Unknown",
+        "forensicTriage": "No",
+        "notes": "https://helpx.adobe.com/security/products/coldfusion/apsb24-14.html ; https://nvd.nist.gov/vuln/detail/CVE-2024-20767",
+        "cwes": [
+          "CWE-284"
+        ]
+      },
+      "expected": {
+        "kev_listed": true,
+        "date_added": "2024-12-16",
+        "due_date": "2025-01-06",
+        "ransomware_use": "Unknown",
+        "forensic_triage": "No",
+        "cwes": [
+          "CWE-284"
+        ]
+      },
+      "evaluation_questions": [
+        "Is CVE-2024-20767 listed in the supplied KEV snapshot?",
+        "What KEV remediation due date is given for CVE-2024-20767?",
+        "What ransomware campaign use status is reported for CVE-2024-20767?",
+        "What forensicTriage value, if any, is provided for CVE-2024-20767?",
+        "What required action is specified for CVE-2024-20767?"
+      ]
+    },
+    {
+      "case_type": "positive_kev",
+      "cve_id": "CVE-2020-2506",
+      "vendor": "QNAP Systems",
+      "product": "Helpdesk",
+      "sampling_category": "Access_PrivEsc",
+      "classification_evidence": {
+        "Access_PrivEsc": [
+          "CWE-284"
+        ],
+        "InfoLeak_Crypto": [
+          "sensitive information"
+        ]
+      },
+      "source_record": {
+        "cveID": "CVE-2020-2506",
+        "vendorProject": "QNAP Systems",
+        "product": "Helpdesk",
+        "vulnerabilityName": "QNAP Helpdesk Improper Access Control Vulnerability",
+        "dateAdded": "2022-03-25",
+        "shortDescription": "QNAP Helpdesk contains an improper access control vulnerability which could allow an attacker to gain privileges or to read sensitive information.",
+        "requiredAction": "Apply updates per vendor instructions.",
+        "dueDate": "2022-04-15",
+        "knownRansomwareCampaignUse": "Unknown",
+        "forensicTriage": "No",
+        "notes": "https://nvd.nist.gov/vuln/detail/CVE-2020-2506",
+        "cwes": [
+          "CWE-284"
+        ]
+      },
+      "expected": {
+        "kev_listed": true,
+        "date_added": "2022-03-25",
+        "due_date": "2022-04-15",
+        "ransomware_use": "Unknown",
+        "forensic_triage": "No",
+        "cwes": [
+          "CWE-284"
+        ]
+      },
+      "evaluation_questions": [
+        "Is CVE-2020-2506 listed in the supplied KEV snapshot?",
+        "What KEV remediation due date is given for CVE-2020-2506?",
+        "What ransomware campaign use status is reported for CVE-2020-2506?",
+        "What forensicTriage value, if any, is provided for CVE-2020-2506?",
+        "What required action is specified for CVE-2020-2506?"
+      ]
+    },
+    {
+      "case_type": "positive_kev",
+      "cve_id": "CVE-2025-48543",
+      "vendor": "Android",
+      "product": "Runtime",
+      "sampling_category": "Access_PrivEsc",
+      "classification_evidence": {
+        "Access_PrivEsc": [
+          "privilege escalation"
+        ]
+      },
+      "source_record": {
+        "cveID": "CVE-2025-48543",
+        "vendorProject": "Android",
+        "product": "Runtime",
+        "vulnerabilityName": "Android Runtime Use-After-Free Vulnerability",
+        "dateAdded": "2025-09-04",
+        "shortDescription": "Android Runtime contains a use-after-free vulnerability potentially allowing a chrome sandbox escape leading to local privilege escalation.",
+        "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+        "dueDate": "2025-09-25",
+        "knownRansomwareCampaignUse": "Unknown",
+        "forensicTriage": "No",
+        "notes": "https://source.android.com/docs/security/bulletin/2025-09-01 ; https://nvd.nist.gov/vuln/detail/CVE-2025-48543",
+        "cwes": []
+      },
+      "expected": {
+        "kev_listed": true,
+        "date_added": "2025-09-04",
+        "due_date": "2025-09-25",
+        "ransomware_use": "Unknown",
+        "forensic_triage": "No",
+        "cwes": []
+      },
+      "evaluation_questions": [
+        "Is CVE-2025-48543 listed in the supplied KEV snapshot?",
+        "What KEV remediation due date is given for CVE-2025-48543?",
+        "What ransomware campaign use status is reported for CVE-2025-48543?",
+        "What forensicTriage value, if any, is provided for CVE-2025-48543?",
+        "What required action is specified for CVE-2025-48543?"
+      ]
+    },
+    {
+      "case_type": "positive_kev",
+      "cve_id": "CVE-2021-0920",
+      "vendor": "Android",
+      "product": "Kernel",
+      "sampling_category": "Access_PrivEsc",
+      "classification_evidence": {
+        "Access_PrivEsc": [
+          "privilege escalation"
+        ]
+      },
+      "source_record": {
+        "cveID": "CVE-2021-0920",
+        "vendorProject": "Android",
+        "product": "Kernel",
+        "vulnerabilityName": "Android Kernel Race Condition Vulnerability",
+        "dateAdded": "2022-05-23",
+        "shortDescription": "Android kernel contains a race condition, which allows for a use-after-free vulnerability. Exploitation can allow for privilege escalation.",
+        "requiredAction": "Apply updates per vendor instructions.",
+        "dueDate": "2022-06-13",
+        "knownRansomwareCampaignUse": "Unknown",
+        "forensicTriage": "No",
+        "notes": "https://nvd.nist.gov/vuln/detail/CVE-2021-0920",
+        "cwes": [
+          "CWE-362",
+          "CWE-416"
+        ]
+      },
+      "expected": {
+        "kev_listed": true,
+        "date_added": "2022-05-23",
+        "due_date": "2022-06-13",
+        "ransomware_use": "Unknown",
+        "forensic_triage": "No",
+        "cwes": [
+          "CWE-362",
+          "CWE-416"
+        ]
+      },
+      "evaluation_questions": [
+        "Is CVE-2021-0920 listed in the supplied KEV snapshot?",
+        "What KEV remediation due date is given for CVE-2021-0920?",
+        "What ransomware campaign use status is reported for CVE-2021-0920?",
+        "What forensicTriage value, if any, is provided for CVE-2021-0920?",
+        "What required action is specified for CVE-2021-0920?"
+      ]
+    },
+    {
+      "case_type": "positive_kev",
+      "cve_id": "CVE-2025-22457",
+      "vendor": "Ivanti",
+      "product": "Connect Secure, Policy Secure, and ZTA Gateways",
+      "sampling_category": "RCE",
+      "classification_evidence": {
+        "RCE": [
+          "remote code execution"
+        ]
+      },
+      "source_record": {
+        "cveID": "CVE-2025-22457",
+        "vendorProject": "Ivanti",
+        "product": "Connect Secure, Policy Secure, and ZTA Gateways",
+        "vulnerabilityName": "Ivanti Connect Secure, Policy Secure, and ZTA Gateways Stack-Based Buffer Overflow Vulnerability",
+        "dateAdded": "2025-04-04",
+        "shortDescription": "Ivanti Connect Secure, Policy Secure, and ZTA Gateways contains a stack-based buffer overflow vulnerability that allows a remote unauthenticated attacker to achieve remote code execution.",
+        "requiredAction": "Apply mitigations as set forth in the CISA instructions linked below.",
+        "dueDate": "2025-04-11",
+        "knownRansomwareCampaignUse": "Known",
+        "forensicTriage": "No",
+        "notes": "CISA Mitigation Instructions: https://www.cisa.gov/cisa-mitigation-instructions-cve-2025-22457 ; Additional References: https://forums.ivanti.com/s/article/April-Security-Advisory-Ivanti-Connect-Secure-Policy-Secure-ZTA-Gateways-CVE-2025-22457 ; https://nvd.nist.gov/vuln/detail/CVE-2025-22457",
+        "cwes": [
+          "CWE-121"
+        ]
+      },
+      "expected": {
+        "kev_listed": true,
+        "date_added": "2025-04-04",
+        "due_date": "2025-04-11",
+        "ransomware_use": "Known",
+        "forensic_triage": "No",
+        "cwes": [
+          "CWE-121"
+        ]
+      },
+      "evaluation_questions": [
+        "Is CVE-2025-22457 listed in the supplied KEV snapshot?",
+        "What KEV remediation due date is given for CVE-2025-22457?",
+        "What ransomware campaign use status is reported for CVE-2025-22457?",
+        "What forensicTriage value, if any, is provided for CVE-2025-22457?",
+        "What required action is specified for CVE-2025-22457?"
+      ]
+    },
+    {
+      "case_type": "positive_kev",
+      "cve_id": "CVE-2018-20753",
+      "vendor": "Kaseya",
+      "product": "Virtual System/Server Administrator (VSA)",
+      "sampling_category": "RCE",
+      "classification_evidence": {
+        "RCE": [
+          "remote code execution"
+        ]
+      },
+      "source_record": {
+        "cveID": "CVE-2018-20753",
+        "vendorProject": "Kaseya",
+        "product": "Virtual System/Server Administrator (VSA)",
+        "vulnerabilityName": "Kaseya VSA Remote Code Execution Vulnerability",
+        "dateAdded": "2022-04-13",
+        "shortDescription": "Kaseya VSA RMM allows unprivileged remote attackers to execute PowerShell payloads on all managed devices.",
+        "requiredAction": "Apply updates per vendor instructions.",
+        "dueDate": "2022-05-04",
+        "knownRansomwareCampaignUse": "Known",
+        "forensicTriage": "No",
+        "notes": "https://nvd.nist.gov/vuln/detail/CVE-2018-20753",
+        "cwes": []
+      },
+      "expected": {
+        "kev_listed": true,
+        "date_added": "2022-04-13",
+        "due_date": "2022-05-04",
+        "ransomware_use": "Known",
+        "forensic_triage": "No",
+        "cwes": []
+      },
+      "evaluation_questions": [
+        "Is CVE-2018-20753 listed in the supplied KEV snapshot?",
+        "What KEV remediation due date is given for CVE-2018-20753?",
+        "What ransomware campaign use status is reported for CVE-2018-20753?",
+        "What forensicTriage value, if any, is provided for CVE-2018-20753?",
+        "What required action is specified for CVE-2018-20753?"
+      ]
+    },
+    {
+      "case_type": "positive_kev",
+      "cve_id": "CVE-2019-1297",
+      "vendor": "Microsoft",
+      "product": "Excel",
+      "sampling_category": "RCE",
+      "classification_evidence": {
+        "RCE": [
+          "remote code execution"
+        ]
+      },
+      "source_record": {
+        "cveID": "CVE-2019-1297",
+        "vendorProject": "Microsoft",
+        "product": "Excel",
+        "vulnerabilityName": "Microsoft Excel Remote Code Execution Vulnerability",
+        "dateAdded": "2022-03-03",
+        "shortDescription": "A remote code execution vulnerability exists in Microsoft Excel when the software fails to properly handle objects in memory.",
+        "requiredAction": "Apply updates per vendor instructions.",
+        "dueDate": "2022-03-17",
+        "knownRansomwareCampaignUse": "Unknown",
+        "forensicTriage": "No",
+        "notes": "https://nvd.nist.gov/vuln/detail/CVE-2019-1297",
+        "cwes": []
+      },
+      "expected": {
+        "kev_listed": true,
+        "date_added": "2022-03-03",
+        "due_date": "2022-03-17",
+        "ransomware_use": "Unknown",
+        "forensic_triage": "No",
+        "cwes": []
+      },
+      "evaluation_questions": [
+        "Is CVE-2019-1297 listed in the supplied KEV snapshot?",
+        "What KEV remediation due date is given for CVE-2019-1297?",
+        "What ransomware campaign use status is reported for CVE-2019-1297?",
+        "What forensicTriage value, if any, is provided for CVE-2019-1297?",
+        "What required action is specified for CVE-2019-1297?"
+      ]
+    },
+    {
+      "case_type": "positive_kev",
+      "cve_id": "CVE-2026-109619",
+      "vendor": "PHP Group",
+      "product": "PHP",
+      "sampling_category": "RCE",
+      "classification_evidence": {
+        "RCE": [
+          "remote code execution"
+        ]
+      },
+      "source_record": {
+        "cveID": "CVE-2026-109619",
+        "vendorProject": "PHP Group",
+        "product": "PHP",
+        "vulnerabilityName": "PHP Stale Internal Request-State Vulnerability",
+        "dateAdded": "2026-10-26",
+        "shortDescription": "PHP contains a stale internal request-state vulnerability that allows for unauthenticated remote code execution.",
+        "requiredAction": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
+        "dueDate": "2026-10-29",
+        "knownRansomwareCampaignUse": "Unknown",
+        "forensicTriage": "Yes",
+        "notes": "This vulnerability affects an open-source component, third-party library, protocol, or proprietary implementation that could be used by different products. For more information, please see: https://www.php.net/ ; https://www.cisa.gov/news-events/alerts/2026/10/21/critical-vulnerabilities-php-require-immediate-patching ; BOD 26-04: https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk ; Forensics Triage Requirements: https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk ;  https://nvd.nist.gov/vuln/detail/CVE-2026-109619",
+        "cwes": [
+          "CWE-416",
+          "CWE-755",
+          "CWE-824",
+          "CWE-1325",
+          "CWE-1419"
+        ]
+      },
+      "expected": {
+        "kev_listed": true,
+        "date_added": "2026-10-26",
+        "due_date": "2026-10-29",
+        "ransomware_use": "Unknown",
+        "forensic_triage": "Yes",
+        "cwes": [
+          "CWE-416",
+          "CWE-755",
+          "CWE-824",
+          "CWE-1325",
+          "CWE-1419"
+        ]
+      },
+      "evaluation_questions": [
+        "Is CVE-2026-109619 listed in the supplied KEV snapshot?",
+        "What KEV remediation due date is given for CVE-2026-109619?",
+        "What ransomware campaign use status is reported for CVE-2026-109619?",
+        "What forensicTriage value, if any, is provided for CVE-2026-109619?",
+        "What required action is specified for CVE-2026-109619?"
+      ]
+    },
+    {
+      "case_type": "positive_kev",
+      "cve_id": "CVE-2018-8373",
+      "vendor": "Microsoft",
+      "product": "Internet Explorer Scripting Engine",
+      "sampling_category": "RCE",
+      "classification_evidence": {
+        "RCE": [
+          "remote code execution"
+        ]
+      },
+      "source_record": {
+        "cveID": "CVE-2018-8373",
+        "vendorProject": "Microsoft",
+        "product": "Internet Explorer Scripting Engine",
+        "vulnerabilityName": "Microsoft Scripting Engine Memory Corruption Vulnerability",
+        "dateAdded": "2022-03-25",
+        "shortDescription": "A remote code execution vulnerability exists in the way that the scripting engine handles objects in memory in Internet Explorer.",
+        "requiredAction": "Apply updates per vendor instructions.",
+        "dueDate": "2022-04-15",
+        "knownRansomwareCampaignUse": "Unknown",
+        "forensicTriage": "No",
+        "notes": "https://nvd.nist.gov/vuln/detail/CVE-2018-8373",
+        "cwes": [
+          "CWE-787"
+        ]
+      },
+      "expected": {
+        "kev_listed": true,
+        "date_added": "2022-03-25",
+        "due_date": "2022-04-15",
+        "ransomware_use": "Unknown",
+        "forensic_triage": "No",
+        "cwes": [
+          "CWE-787"
+        ]
+      },
+      "evaluation_questions": [
+        "Is CVE-2018-8373 listed in the supplied KEV snapshot?",
+        "What KEV remediation due date is given for CVE-2018-8373?",
+        "What ransomware campaign use status is reported for CVE-2018-8373?",
+        "What forensicTriage value, if any, is provided for CVE-2018-8373?",
+        "What required action is specified for CVE-2018-8373?"
+      ]
+    },
+    {
+      "case_type": "positive_kev",
+      "cve_id": "CVE-2026-48282",
+      "vendor": "Adobe",
+      "product": "ColdFusion",
+      "sampling_category": "RCE",
+      "classification_evidence": {
+        "Path_Traversal": [
+          "CWE-22",
+          "path traversal"
+        ],
+        "RCE": [
+          "arbitrary code execution"
+        ]
+      },
+      "source_record": {
+        "cveID": "CVE-2026-48282",
+        "vendorProject": "Adobe",
+        "product": "ColdFusion",
+        "vulnerabilityName": "Adobe ColdFusion Path Traversal Vulnerability",
+        "dateAdded": "2026-07-07",
+        "shortDescription": "Adobe ColdFusion contains a path traversal vulnerability that could lead to arbitrary code execution in the context of the current user.",
+        "requiredAction": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
+        "dueDate": "2026-07-10",
+        "knownRansomwareCampaignUse": "Unknown",
+        "forensicTriage": "Yes",
+        "notes": "https://helpx.adobe.com/security/products/coldfusion/apsb26-68.html ; BOD 26-04: https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk ; Forensics Triage Requirements: https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk ; https://nvd.nist.gov/vuln/detail/CVE-2026-48282",
+        "cwes": [
+          "CWE-22"
+        ]
+      },
+      "expected": {
+        "kev_listed": true,
+        "date_added": "2026-07-07",
+        "due_date": "2026-07-10",
+        "ransomware_use": "Unknown",
+        "forensic_triage": "Yes",
+        "cwes": [
+          "CWE-22"
+        ]
+      },
+      "evaluation_questions": [
+        "Is CVE-2026-48282 listed in the supplied KEV snapshot?",
+        "What KEV remediation due date is given for CVE-2026-48282?",
+        "What ransomware campaign use status is reported for CVE-2026-48282?",
+        "What forensicTriage value, if any, is provided for CVE-2026-48282?",
+        "What required action is specified for CVE-2026-48282?"
+      ]
+    },
+    {
+      "case_type": "negative_non_kev",
+      "cve_id": "CVE-2024-3094",
+      "vendor": "XZ Utils",
+      "product": "XZ Utils",
+      "sampling_category": "Negative_Control",
+      "existence_reference": "https://www.cve.org/CVERecord?id=CVE-2024-3094",
+      "source_record": null,
+      "expected": {
+        "kev_listed": false,
+        "date_added": null,
+        "due_date": null,
+        "ransomware_use": null,
+        "forensic_triage": null,
+        "cwes": null
+      },
+      "evaluation_questions": [
+        "Is CVE-2024-3094 listed in the supplied KEV snapshot?",
+        "Does this KEV snapshot provide a remediation due date for CVE-2024-3094?",
+        "Can absence of CVE-2024-3094 from KEV prove that it has never been exploited?"
+      ],
+      "answer_guidance": [
+        "Not listed in this KEV snapshot.",
+        "No KEV remediation due date is provided.",
+        "Absence from KEV does not prove no exploitation.",
+        "Do not infer no ransomware risk or no need to patch."
+      ]
+    },
+    {
+      "case_type": "negative_non_kev",
+      "cve_id": "CVE-2023-38545",
+      "vendor": "curl",
+      "product": "curl / libcurl",
+      "sampling_category": "Negative_Control",
+      "existence_reference": "https://curl.se/docs/CVE-2023-38545.html",
+      "source_record": null,
+      "expected": {
+        "kev_listed": false,
+        "date_added": null,
+        "due_date": null,
+        "ransomware_use": null,
+        "forensic_triage": null,
+        "cwes": null
+      },
+      "evaluation_questions": [
+        "Is CVE-2023-38545 listed in the supplied KEV snapshot?",
+        "Does this KEV snapshot provide a remediation due date for CVE-2023-38545?",
+        "Can absence of CVE-2023-38545 from KEV prove that it has never been exploited?"
+      ],
+      "answer_guidance": [
+        "Not listed in this KEV snapshot.",
+        "No KEV remediation due date is provided.",
+        "Absence from KEV does not prove no exploitation.",
+        "Do not infer no ransomware risk or no need to patch."
+      ]
+    },
+    {
+      "case_type": "negative_non_kev",
+      "cve_id": "CVE-2021-45105",
+      "vendor": "Apache",
+      "product": "Log4j",
+      "sampling_category": "Negative_Control",
+      "existence_reference": "https://www.cve.org/CVERecord?id=CVE-2021-45105",
+      "source_record": null,
+      "expected": {
+        "kev_listed": false,
+        "date_added": null,
+        "due_date": null,
+        "ransomware_use": null,
+        "forensic_triage": null,
+        "cwes": null
+      },
+      "evaluation_questions": [
+        "Is CVE-2021-45105 listed in the supplied KEV snapshot?",
+        "Does this KEV snapshot provide a remediation due date for CVE-2021-45105?",
+        "Can absence of CVE-2021-45105 from KEV prove that it has never been exploited?"
+      ],
+      "answer_guidance": [
+        "Not listed in this KEV snapshot.",
+        "No KEV remediation due date is provided.",
+        "Absence from KEV does not prove no exploitation.",
+        "Do not infer no ransomware risk or no need to patch."
+      ]
+    },
+    {
+      "case_type": "negative_non_kev",
+      "cve_id": "CVE-2022-3602",
+      "vendor": "OpenSSL",
+      "product": "OpenSSL",
+      "sampling_category": "Negative_Control",
+      "existence_reference": "https://www.cve.org/CVERecord?id=CVE-2022-3602",
+      "source_record": null,
+      "expected": {
+        "kev_listed": false,
+        "date_added": null,
+        "due_date": null,
+        "ransomware_use": null,
+        "forensic_triage": null,
+        "cwes": null
+      },
+      "evaluation_questions": [
+        "Is CVE-2022-3602 listed in the supplied KEV snapshot?",
+        "Does this KEV snapshot provide a remediation due date for CVE-2022-3602?",
+        "Can absence of CVE-2022-3602 from KEV prove that it has never been exploited?"
+      ],
+      "answer_guidance": [
+        "Not listed in this KEV snapshot.",
+        "No KEV remediation due date is provided.",
+        "Absence from KEV does not prove no exploitation.",
+        "Do not infer no ransomware risk or no need to patch."
+      ]
+    },
+    {
+      "case_type": "negative_non_kev",
+      "cve_id": "CVE-2023-20593",
+      "vendor": "AMD",
+      "product": "Affected AMD Zen 2 processors",
+      "sampling_category": "Negative_Control",
+      "existence_reference": "https://www.cve.org/CVERecord?id=CVE-2023-20593",
+      "source_record": null,
+      "expected": {
+        "kev_listed": false,
+        "date_added": null,
+        "due_date": null,
+        "ransomware_use": null,
+        "forensic_triage": null,
+        "cwes": null
+      },
+      "evaluation_questions": [
+        "Is CVE-2023-20593 listed in the supplied KEV snapshot?",
+        "Does this KEV snapshot provide a remediation due date for CVE-2023-20593?",
+        "Can absence of CVE-2023-20593 from KEV prove that it has never been exploited?"
+      ],
+      "answer_guidance": [
+        "Not listed in this KEV snapshot.",
+        "No KEV remediation due date is provided.",
+        "Absence from KEV does not prove no exploitation.",
+        "Do not infer no ransomware risk or no need to patch."
+      ]
+    }
+  ]
+}

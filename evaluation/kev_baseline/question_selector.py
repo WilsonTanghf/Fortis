@@ -1,93 +1,93 @@
 import json
 from pathlib import Path
 
+SUBSET_POSITIVE_POSITIONS = [1, 15, 28]
+SUBSET_NEGATIVE_POSITION = 3
 
-POSITIVE_CASE_INDEXES = [1, 15, 28]
-NEGATIVE_CASE_INDEX = 3
-QUESTIONS_PER_POSITIVE_CASE = 5
-QUESTIONS_PER_NEGATIVE_CASE = 3
-EXPECTED_QUESTION_COUNT = 18
+POSITIVE_CHECKS = [
+    "listed",
+    "due_date",
+    "ransomware",
+    "forensic_triage",
+    "required_action",
+]
+NEGATIVE_CHECKS = ["listed", "due_date", "absence"]
+
+EXPECTED_COUNTS = {"subset": 18, "full": 190}
 
 
 def load_dataset(path):
-    return json.loads(
-        Path(path).read_text(encoding="utf-8")
-    )
+    return json.loads(Path(path).read_text(encoding="utf-8"))
 
 
-def select_cases(dataset):
-    cases = dataset.get("cases", [])
+def select_cases(dataset, mode="subset"):
+    cases = dataset["cases"]
 
-    positive_cases = []
-    negative_case = None
+    if mode == "full":
+        return cases
+    if mode != "subset":
+        raise ValueError(f"Unknown mode: {mode}")
 
-    for index in POSITIVE_CASE_INDEXES:
-        case = cases[index - 1]
+    positives = [c for c in cases if c.get("case_type") == "positive_kev"]
+    negatives = [c for c in cases if c.get("case_type") == "negative_nonkev"]
 
-        if case.get("case_type") != "positive_kev":
-            raise ValueError(
-                f"Case {index} is not a positive KEV case."
-            )
-
-        positive_cases.append(case)
-
-    negative_case = cases[NEGATIVE_CASE_INDEX - 1]
-
-    if negative_case.get("case_type") != "negative_nonkev":
-        raise ValueError(
-            f"Case {NEGATIVE_CASE_INDEX} is not a negative control."
-        )
-
-    return positive_cases, negative_case
+    selected = [positives[i - 1] for i in SUBSET_POSITIVE_POSITIONS]
+    selected.append(negatives[SUBSET_NEGATIVE_POSITION - 1])
+    return selected
 
 
-def build_questions(dataset):
-    positive_cases, negative_case = select_cases(dataset)
-    questions = []
+def expected_for_positive(case):
+    expected = case["expected"]
+    source = case.get("source_record") or {}
+    return [
+        expected.get("kev_listed"),
+        expected.get("due_date"),
+        expected.get("ransomware_use"),
+        expected.get("forensic_triage"),
+        source.get("requiredAction"),
+    ]
 
-    for case in positive_cases:
-        cve_id = case["cve_id"]
-        evaluation_questions = case["evaluation_questions"]
-        expected = case["expected"]
 
-        expected_answers = [
-            expected.get("kev_listed"),
-            expected.get("date_added"),
-            expected.get("due_date"),
-            expected.get("ransomware_use"),
-            expected.get("required_action"),
-        ]
+def questions_for_case(case):
+    cve_id = case["cve_id"]
+    case_type = case.get("case_type")
+    prompts = case["evaluation_questions"]
 
-        for index, question in enumerate(
-            evaluation_questions[:QUESTIONS_PER_POSITIVE_CASE]
-        ):
-            questions.append({
-                "case_type": "positive_kev",
-                "cve_id": cve_id,
-                "question_index": index,
-                "question": question,
-                "expected_answer": expected_answers[index],
-            })
+    if case_type == "positive_kev":
+        checks = POSITIVE_CHECKS
+        answers = expected_for_positive(case)
+    elif case_type == "negative_nonkev":
+        checks = NEGATIVE_CHECKS
+        answers = case["answer_guidance"][: len(NEGATIVE_CHECKS)]
+    else:
+        raise ValueError(f"{cve_id}: unknown case_type {case_type}")
 
-    cve_id = negative_case["cve_id"]
-    evaluation_questions = negative_case["evaluation_questions"]
-    guidance = negative_case["answer_guidance"]
+    if len(prompts) < len(checks) or len(answers) < len(checks):
+        raise ValueError(f"{cve_id}: not enough questions or answers.")
 
-    for index, question in enumerate(
-        evaluation_questions[:QUESTIONS_PER_NEGATIVE_CASE]
-    ):
-        questions.append({
-            "case_type": "negative_nonkev",
+    return [
+        {
+            "question_id": f"{cve_id}-q{i + 1}",
+            "case_type": case_type,
             "cve_id": cve_id,
-            "question_index": index,
-            "question": question,
-            "expected_answer": guidance[index],
-        })
+            "question_index": i,
+            "check_type": checks[i],
+            "question": prompts[i],
+            "expected_answer": answers[i],
+        }
+        for i in range(len(checks))
+    ]
 
-    if len(questions) != EXPECTED_QUESTION_COUNT:
+
+def build_questions(dataset, mode="subset"):
+    questions = []
+    for case in select_cases(dataset, mode):
+        questions.extend(questions_for_case(case))
+
+    expected_count = EXPECTED_COUNTS[mode]
+    if len(questions) != expected_count:
         raise ValueError(
-            f"Expected {EXPECTED_QUESTION_COUNT} questions, "
-            f"but found {len(questions)}."
+            f"Expected {expected_count} questions in {mode} mode, "
+            f"found {len(questions)}."
         )
-
     return questions
